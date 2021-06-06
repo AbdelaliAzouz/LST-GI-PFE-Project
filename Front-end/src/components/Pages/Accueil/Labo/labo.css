@@ -1,0 +1,103 @@
+.labo-salam{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: blue;
+}
+
+
+.labo{
+    margin: 40px;
+    align-items: center;
+    text-align: center;
+}
+
+.header-labo-equipe{
+    text-align: center;
+    align-items: center;
+}
+/* .liste-labos{ */
+    /* padding: 10px;
+    margin: 30px; */
+    /* position: relative; */
+    /* height: 100%;
+    width: 100%; */
+    /* margin: 20px 20px 3 40px; */
+    /* background-color: #335d99; */
+/* } */
+.liste-labos{
+    margin-top: 10px;
+    margin-right: 40px;
+}
+/* .btn-labo-equipe{
+    padding: 80px;
+    margin: 40px;
+} */
+
+.liste-labos-container{
+    margin: 60px ;
+}
+
+.btn-labo-equipe {
+    position: relative;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 5px; 
+    background:  #094161;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+.btn-labo-equipe:hover {
+    background:  #a3c2c2;
+}
+.popup-things {
+    /* width: 10px; */
+    /* height: 100%; */
+    margin: 10px 1px 20px 5px;
+    /* padding: 2px 1px 2px 1px; */
+}
+.popup-things p {
+    font-weight: bold;
+    color: #0c161d;
+    /* padding: 10px; */
+}
+.bold{
+    font-size: large;
+}
+
+/* @media screen and (min-width: 694px) {
+    .popupstyle{
+    position: "top left";
+}
+} */
+
+@media screen and (max-width: 1360px) and (min-width: 737px){
+    .btn-labo-equipe{
+        margin: 10px 10px 10px 10px;
+        /* margin-right:  */
+        /* border: 1px solid red; */
+    }
+    .liste-labos-container{
+        margin: 10px 10px 10px 10px;
+        /* margin-right:  */
+        /* border: 1px solid red; */
+    }
+}
+
+@media screen and (max-width: 737px){
+    .btn-labo-equipe{
+        margin: 5px 5px 5px 5px;
+        /* margin-right:  */
+        /* border: 1px solid red; */
+    }
+    .liste-labos-container{
+        margin: 5px 5px 5px 5px;
+        /* margin-right:  */
+        /* border: 1px solid red; */
+    }
+}

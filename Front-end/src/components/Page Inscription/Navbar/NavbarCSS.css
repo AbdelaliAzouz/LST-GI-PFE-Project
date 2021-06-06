@@ -1,0 +1,13 @@
+/* .navbar{
+    border: 1px rgb(251, 8, 8) solid;
+    margin: 10px;
+} */
+
+.navbar-content{
+    color: #ffffff;
+    background-color: #072D63;
+    padding: 20px;
+    text-align: center;
+    font-family: Bahnschrift;
+    font-size: xxx-large;
+}

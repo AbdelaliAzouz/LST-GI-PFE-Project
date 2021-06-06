@@ -1,0 +1,12 @@
+.Accueil{
+    background-color: #f3f2ef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Accueil_body{
+    display: flex;
+    margin-top: 20px;
+    width: 96%;
+}

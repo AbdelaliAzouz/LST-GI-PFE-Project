@@ -1,0 +1,53 @@
+.mr-auto{
+    margin-left:80px;
+    margin-right:80px;
+}
+
+.navig:hover{
+    background-color: #8EE6FC;
+    font-size:16px;
+    transition: 120ms ease-in-out;
+    border-bottom: 2px solid #2c7f94;
+}
+
+.navig{
+    display: flex;
+}
+
+.profil{
+    display: flex;
+}
+
+
+.fas{
+    margin: 2px;
+}
+
+.logoReact{
+    width:40px;
+    margin-right: 30px;;
+    margin-left: 30px;;
+}
+
+.profil > h6{
+    margin-top: 8px;
+}
+
+/* .MuiSvgIcon-root{
+    width: 5px;
+    height: 5px;
+} */
+
+/* @media(min-width: 992px) {
+    .Navbar2{
+    height: 60px;
+}
+}
+
+.Navbar2{
+    width: 100%;
+}
+
+.sidebar{
+    top: 180;
+} */

@@ -1,0 +1,77 @@
+.mr-auto{
+    margin-left:80px;
+    margin-right:80px;
+}
+
+#Research{
+    color: white;
+}
+
+.navig{
+    display: flex;
+}
+
+.label{
+    color: white;
+}
+
+.label:hover{
+    transition: 40ms ease-in-out;
+    border-bottom: 3px solid #2c7f94;
+}
+
+.profil{
+    display: flex;
+}
+
+@media(max-width: 1170px) {
+    .profil{
+        display: none;
+    }
+}
+
+.fas{
+    margin: 2px;
+    color: rgb(120, 169, 224);
+}
+
+.logoReact{
+    width:40px;
+    margin-right: 30px;;
+    margin-left: 30px;;
+}
+
+.profil > h6{
+    margin-top: 8px;
+    color:rgb(223, 208, 208) ;
+    text-decoration: underline;
+}
+
+.MuiSvgIcon-root{
+    width: 5px;
+    height: 5px;
+}
+
+@media(min-width: 992px) {
+    .Navbar2{
+    height: 60px;
+}
+}
+
+.Navbar2{
+    width: 100%;
+    background-color: #072D63;
+}
+
+.sidebar{
+    top: 180;
+}
+
+.Search_icon{
+    color:rgb(255, 255, 255);
+    margin-top: 8px;
+}
+
+.d-flex{
+    display: flex;
+}

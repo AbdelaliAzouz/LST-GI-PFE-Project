@@ -1,0 +1,55 @@
+.feed{
+    flex: 0.6;
+    margin: 0 20px;
+}
+
+@media(max-width: 810px) and (min-width: 627px) {
+    .feed{
+        flex: 0.8;
+    }
+}
+@media(max-width: 626px) {
+    .feed{
+        flex: 1;
+    }
+}
+
+.feed_input{
+    background-color: white;
+    padding: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.input{
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    display: flex;
+    padding: 10px;
+    color: gray;
+    padding-left: 15px;
+}
+
+.input > i{
+    margin-top: 7px;
+}
+
+.input > form {
+    display: flex;
+    width: 100%;
+
+}
+
+.input > form > input {
+    border: none;
+    flex: 1;
+    margin-left: 10px;
+    outline-width: 0;
+    font-weight: 600;
+}
+
+.input > form > Button {
+    margin: 0px;
+}
+

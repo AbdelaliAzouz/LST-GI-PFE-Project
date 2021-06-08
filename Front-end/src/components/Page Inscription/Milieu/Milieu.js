@@ -1,6 +1,6 @@
 import './MilieuCSS.css';
-import '../Form/Form';
-import { Link } from 'react-router-dom'
+/* import '../Form/Form';
+ */import { Link } from 'react-router-dom'
 
 function MilieuInscription() {
     return(

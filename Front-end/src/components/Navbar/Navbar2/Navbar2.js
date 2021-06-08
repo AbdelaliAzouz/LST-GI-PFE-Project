@@ -20,7 +20,7 @@ const Navbar2 = () => {
       navbarScroll
     >
       <Nav.Link href="/Accueil" className="navig"><i className="fas fa-home"></i><div className="label">Accueil</div></Nav.Link>
-      <Nav.Link href="#action2" className="navig"><i className="fas fa-university"></i><div className="label">Etablissements</div></Nav.Link>
+      <Nav.Link href="/Etablissements" className="navig"><i className="fas fa-university"></i><div className="label">Etablissements</div></Nav.Link>
       <Nav.Link href="#action3" className="navig"><i className="fas fa-newspaper"></i><div className="label">Articles</div></Nav.Link>
       <Nav.Link href="#action4" className="navig"><i className="fas fa-user-friends"></i><div className="label">Chercheurs</div></Nav.Link>
       <Nav.Link href="#action5" className="navig"><i className="fas fa-lightbulb"></i><div className="label">About</div></Nav.Link>

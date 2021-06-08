@@ -71,9 +71,11 @@ const Sidebar = () => {
                     <h5>Chercheur.nom@uae.ac.ma</h5>
                 </div>
             <div className="sidebar_stats">
+            <Link to='/Etablissements'>
                 <div className="sidebar_stat">
                     <p>Etablissement</p>
                 </div>
+                </Link>
                 <div className="sidebar_stat">
                     <p>Départements</p>
                 </div>

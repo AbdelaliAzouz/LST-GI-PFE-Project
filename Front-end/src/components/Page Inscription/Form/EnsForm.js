@@ -76,6 +76,7 @@ function EnsFormInscription () {
                                     title={isRevealPwd ? "Hide password" : "Show password"}
                                     src={isRevealPwd ? hidePwdImg : showPwdImg}
                                     onClick={() => setIsRevealPwd(prevState => !prevState)}
+                                    alt="hide/show"
                                 />
                             </div>
                             {/* <input className="inputForInsription" id="emailPerso" type="text"   name="emailPerso" required/> */}

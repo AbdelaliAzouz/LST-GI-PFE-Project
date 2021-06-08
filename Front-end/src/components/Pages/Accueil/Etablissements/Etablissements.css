@@ -1,0 +1,102 @@
+.labo{
+    margin: 40px;
+}
+
+
+.liste-labos{
+    margin-top: 10px;
+}
+
+.site-oficielle{
+    color: blue;
+    font-style: italic;
+}
+
+.a-labo{
+    color: blue;
+    text-decoration: underline;
+}
+
+.a-chercheurs{
+    color: blue;
+    text-decoration: underline;
+}
+
+.liste-labos-container{
+    margin: 60px ;
+}
+
+.btn-labo-equipe {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 5px; 
+    background:  #094161;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;  
+}
+
+p{
+    margin: 0;
+}
+
+.btn-labo-equipe-hide {
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 50px;
+    border: none;
+    border-radius: 5px; 
+    background:  #ffffff;
+    font-size: 18px;
+    color: #fff;
+    pointer-events: none;
+}
+
+.display{
+    display: flex;
+}
+
+.btn-labo-equipe:hover {
+    background:  #78A9E0;
+}
+.popup-things {
+    /* width: 10px; */
+    /* height: 100%; */
+    margin: 10px 1px 20px 5px;
+    /* padding: 2px 1px 2px 1px; */
+}
+.popup-things p {
+    font-weight: bold;
+    color: #0c161d;
+    /* padding: 10px; */
+}
+.bold{
+    font-size: large;
+}
+
+.Location{
+    display: flex;
+    color: #3f6b9d; 
+}
+
+@media screen and (max-width: 1360px) and (min-width: 737px){
+    .btn-labo-equipe{
+        margin: 10px 10px 10px 10px;
+    }
+    .liste-labos-container{
+        margin: 10px 10px 10px 10px;
+    }
+}
+
+@media screen and (max-width: 737px){
+    .btn-labo-equipe{
+        margin: 5px 5px 5px 5px;
+    }
+    .liste-labos-container{
+        margin: 5px 5px 5px 5px;
+    }
+}

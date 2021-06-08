@@ -37,7 +37,7 @@ function DocFormInscription(){
                 discipline: discipline, 
                 thematique: thematique, 
                 labo:labo 
-        }).then(()=> {
+        }).then(()=> {  //then is called a promise
             alert("successful insert")
         })
         }
@@ -79,6 +79,7 @@ function DocFormInscription(){
                                     title={isRevealPwd ? "Hide password" : "Show password"}
                                     src={isRevealPwd ? hidePwdImg : showPwdImg}
                                     onClick={() => setIsRevealPwd(prevState => !prevState)}
+                                    alt="hide/show"
                                 />
                             </div>
                         {/* <input className="inputForInsription" id="emailPerso" type="text"   name="emailPerso" required/> */}

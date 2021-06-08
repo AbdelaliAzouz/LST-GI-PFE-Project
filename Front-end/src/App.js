@@ -15,6 +15,7 @@ import EnsFormInscription from './components/Page Inscription/Form/EnsForm'
 import DocFormInscription from './components/Page Inscription/Form/DocForm'
 import RetourBtnInscription from './components/Page Inscription/RevenirAccueil/RetourBtn'
 import Labo from '../src/components/Pages/Accueil/Labo/labo' // importés pour Labos
+import Etablissements from '../src/components/Pages/Accueil/Etablissements/Etablissements' // importés pour Etablissements
 
 
 
@@ -52,6 +53,9 @@ render(){
             </Route>
             <Route exact path='/Labos'>
                 <Labo/>
+            </Route>
+            <Route exact path='/Etablissements'>
+                <Etablissements/>
             </Route>
         </Router>
     </div >

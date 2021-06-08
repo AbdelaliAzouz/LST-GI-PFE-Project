@@ -5,9 +5,33 @@ import Container from "../Global/Container";
 import {button} from 'bootstrap/dist/css/bootstrap.min.css'
 import Particles from 'react-particles-js';
 import './WelcomePage.css'
+import { useState } from 'react';
+import Axios from 'axios'
 import Login from '../Login/Login'
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
+
+    const [ email_institu, setEmail_institu ] = useState("")
+    const [ mot_de_passe, setMot_de_passe ] = useState("")
+
+    const [ loginStatus, setLoginStatus ] = useState("")
+
+    const login = () =>{
+        Axios.post('http://localhost:3001/login', { 
+            email_institu: email_institu, 
+            mot_de_passe: mot_de_passe, 
+
+    }).then((response)=> {  
+        console.log(response);
+        if(response.data.message){
+            setLoginStatus(response.data.message)
+        }else{
+            setLoginStatus(response.data[0].nom)
+        }
+    })
+    }
+
 
     return (
         <section className="styles">
@@ -19,14 +43,17 @@ const Hero = () => {
                         <form >
                             <div>
                                 <label htmlFor="exampleInputEmail1" className="form-label" style={{float:'left', color:'#09024D'}}>Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"></input>
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={ (e) => {setEmail_institu(e.target.value)}}></input>
                             </div>
                             <div>
                                 <label htmlFor="exampleInputPassword1" className="form-label" style={{float:'left', color:'#09024D'}}>Password</label>
-                                <input type="Password" className="form-control" id="exampleInputPassword1"></input>
+                                <input type="Password" className="form-control" id="exampleInputPassword1" onChange={ (e) => {setMot_de_passe(e.target.value)}}></input>
                             </div>
-                                <button className="btn btn-primary" type="button" contenu="Sign in"  /* uiConfig={uiConfig} firebaseAuth={firebase.auth()} */>sign in</button>
+                            {/* <Link to='/Accueil'> */}
+                                <button className="btn btn-primary" type="button" contenu="Sign in" onClick={login} >sign in</button>
+                            {/* </Link> */}
                         </form>
+                        <h3>{loginStatus}</h3>
                     </span>
                 </div>
                 <div className="SignInGoogle" >

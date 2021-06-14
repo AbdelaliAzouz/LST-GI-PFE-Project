@@ -82,7 +82,7 @@ const Feed = () => {
             name: userFirstName + ' ' + userLastName,
             description: userEtablissement,
             message: input, 
-            photoUrl: 'https://image.freepik.com/free-vector/new-post-neon-sign-template_77399-531.jpg',
+            photoUrl: '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         })
 

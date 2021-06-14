@@ -4,7 +4,6 @@ import { css, jsx } from '@emotion/react'
 import { useState } from "react";
 import Container from "../Global/Container";
 import Logo from "./NavbarLogo";
-import Menu from "./Menu";
 import Button from "../Global/Button/Button";
 import { Link } from 'react-router-dom'
 
@@ -15,18 +14,10 @@ const Navbar = () => {
         <nav css={styles}>
             <Container>
                 <Logo />
-                <Menu openMenu={openMenu} />
                 <Link to='/Inscription'>
                   <Button contenu="Créer un compte" />
                   
                 </Link>
-                <i
-                      onClick={() => setOpenMenu(!openMenu)}
-                      id="burgerMenu"
-                      className={
-                          openMenu ? "fas fa-times fa-lg" : "fas fa-align-right fa-lg" 
-                      }
-                  ></i>
             </Container>
         </nav>
     );

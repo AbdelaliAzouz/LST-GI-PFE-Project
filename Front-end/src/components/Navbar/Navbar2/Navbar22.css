@@ -85,3 +85,17 @@
 #dropdownMenu{
     background-color: rgb(201, 208, 221);
 }
+
+.fa-power-off{
+    color: rgb(220, 190, 20);
+    margin-right: 3px;
+}
+
+.logout{
+    color: rgb(204, 177, 20);
+}
+
+.dec{
+    display: flex;
+    margin-right: 40px;
+}

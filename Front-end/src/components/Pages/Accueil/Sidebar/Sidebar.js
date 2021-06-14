@@ -89,6 +89,13 @@ const Sidebar = () => {
                     <h3>{userFirstName} {userLastName}</h3>
                     <h5>{userEmail}</h5>
                 </div>
+                <div className="sidebar_bottom">
+                    <h6>Vos Articles</h6>
+                    <a href="/Accueil">Article 1</a>
+                    <a href="/Accueil">Article 2</a>
+                    <a href="/Accueil">Article 3</a>
+                    <a><span>Ajouter une article</span><i className="fas fa-plus"></i></a>
+                </div>
             <div className="sidebar_stats">
             <Link to='/Etablissements'>
                 <div className="sidebar_stat">
@@ -104,13 +111,6 @@ const Sidebar = () => {
                   </div>
                 </Link>
             </div>
-                <div className="sidebar_bottom">
-                    <h6>Vos Articles</h6>
-                    <a href="/Accueil">Article 1</a>
-                    <a href="/Accueil">Article 2</a>
-                    <a href="/Accueil">Article 3</a>
-                    <a><span>Ajouter une article</span><i className="fas fa-plus"></i></a>
-                </div>
             </div>
         );
 };

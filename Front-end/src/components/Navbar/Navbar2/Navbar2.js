@@ -22,24 +22,21 @@ const Navbar2 = () => {
       navbarScroll
     >
       <Nav.Link href="/Accueil" className="navig"><i className="fas fa-home"></i><div className="label">Accueil</div></Nav.Link>
+      <Nav.Link href="/#action2" className="navig"><i class="fas fa-user-alt"></i><div className="label">Profil</div></Nav.Link>
       <Nav.Link href="/Etablissements" className="navig"><i className="fas fa-university"></i><div className="label">Etablissements</div></Nav.Link>
       <Nav.Link href="#action3" className="navig"><i className="fas fa-newspaper"></i><div className="label">Articles</div></Nav.Link>
       <Nav.Link href="#action4" className="navig"><i className="fas fa-user-friends"></i><div className="label">Chercheurs</div></Nav.Link>
       <Nav.Link href="#action5" className="navig"><i className="fas fa-lightbulb"></i><div className="label">About</div></Nav.Link>
     </Nav>
-    <Nav.Link href="#action6" className="profil"><Avatar alt="Abdelali Azouz" src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg" className="Avatar"/>
-    <h6></h6>
+   {/*  <Nav.Link href="#action6" className="profil"><Avatar alt="Abdelali Azouz" src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg" className="Avatar"/>
 
-    <Dropdown>
-      <Dropdown.Toggle variant="" id="dropdown" size="md">
-      </Dropdown.Toggle>
-      <Dropdown.Menu id="dropdownMenu">
-        <Dropdown.Item href="/">déconnexion</Dropdown.Item>
-        <Dropdown.Item href="/Accueil">voir profil</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-
-    </Nav.Link>
+    </Nav.Link> */}
+    <a href="/">
+    <div className="dec">
+      <i class="fas fa-power-off fa-lg" ></i>
+      <p className="logout">logout</p>
+    </div>
+    </a>
     <Form className="d-flex">
       <FormControl
         type="search"

@@ -35,6 +35,7 @@ const App = () => {
             </Route>
             <Route exact path="/Inscription">
                 <NavbarInscription/>
+                <RetourBtnInscription/>
                 <MilieuInscription/>
             </Route>
             <Route exact path="/Inscription/EnsForm">

@@ -27,7 +27,6 @@ const App = () => {
     <div className="App" >
         <Router>
             <Route exact path="/">
-                <Navbar />
                 <WelcomePage />
                 <Description1/>
                 <Description2/>

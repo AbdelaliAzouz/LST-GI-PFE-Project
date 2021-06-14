@@ -5,6 +5,8 @@ import logoReact from '../../../images/logoReact.png'
 import { Avatar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import './Navbar22.css'
+import Dropdown from 'react-bootstrap/Dropdown'
+
 
 const Navbar2 = () => {  
     return(
@@ -25,7 +27,19 @@ const Navbar2 = () => {
       <Nav.Link href="#action4" className="navig"><i className="fas fa-user-friends"></i><div className="label">Chercheurs</div></Nav.Link>
       <Nav.Link href="#action5" className="navig"><i className="fas fa-lightbulb"></i><div className="label">About</div></Nav.Link>
     </Nav>
-    <Nav.Link href="#action6" className="profil"><Avatar alt="Abdelali Azouz" src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg" className="Avatar"/><h6>profil</h6></Nav.Link>
+    <Nav.Link href="#action6" className="profil"><Avatar alt="Abdelali Azouz" src="https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569__480.jpg" className="Avatar"/>
+    <h6></h6>
+
+    <Dropdown>
+      <Dropdown.Toggle variant="" id="dropdown" size="md">
+      </Dropdown.Toggle>
+      <Dropdown.Menu id="dropdownMenu">
+        <Dropdown.Item href="/">déconnexion</Dropdown.Item>
+        <Dropdown.Item href="/Accueil">voir profil</Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+
+    </Nav.Link>
     <Form className="d-flex">
       <FormControl
         type="search"

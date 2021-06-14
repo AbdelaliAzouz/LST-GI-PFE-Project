@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import WelcomePage from "./components/WelcomPage/WelcomePage";
 import Description1 from "./components/Description/Description1";
@@ -16,16 +16,13 @@ import DocFormInscription from './components/Page Inscription/Form/DocForm'
 import RetourBtnInscription from './components/Page Inscription/RevenirAccueil/RetourBtn'
 import Labo from '../src/components/Pages/Accueil/Labo/labo' // importés pour Labos
 import Etablissements from '../src/components/Pages/Accueil/Etablissements/Etablissements' // importés pour Etablissements
+import ProtectedRoue from '../src/components/ProtectedRoute/ProtectedRoue'
 
 
+const App = () => {
 
-class App extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={apiResponse:""}
-    }
+    const [loggedIn, setIoggedIn] = useState(true);
 
-render(){  
     return(
     <div className="App" >
         <Router>
@@ -48,9 +45,12 @@ render(){
                 <RetourBtnInscription/>
                 <DocFormInscription/>
             </Route>
-            <Route exact path="/Accueil" >
+
+            <ProtectedRoue path="/Accueil" component={Accueil} loggedIn={loggedIn} />
+
+            {/* <Route exact path="/Accueil" >
                 <Accueil/>
-            </Route>
+            </Route> */}
             <Route exact path='/Labos'>
                 <Labo/>
             </Route>
@@ -61,7 +61,6 @@ render(){
     </div >
     );
 };
-}
 
 
 export default App;

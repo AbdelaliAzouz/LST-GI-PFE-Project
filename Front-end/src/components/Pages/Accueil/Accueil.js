@@ -4,6 +4,7 @@ import Sidebar from './Sidebar/Sidebar';
 import Feed from './Feed/Feed.js';
 import './Accueil.css'
 import SidebarRight from './SidebarRight/SidebarRight'
+import {withRouter} from 'react-router-dom'
 
 
 const Accueil = () => {  
@@ -20,6 +21,6 @@ const Accueil = () => {
     );
 };
 
-export default Accueil;
+export default withRouter(Accueil);
 
                   

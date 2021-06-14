@@ -23,6 +23,12 @@ function Post( {name, description, message, photoUrl}) {
             
             <div className="post_image">
             <img src={photoUrl} alt="POST_PHOTO"></img>
+
+            {photoUrl && (
+                <div>
+                </div>
+            )}
+
             </div>
             <div className="post_buttons">
                 <InputOptions Icon={ThumbUpAltIcon} title="Like" color="blue"  />

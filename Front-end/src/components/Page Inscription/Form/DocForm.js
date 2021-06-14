@@ -5,10 +5,49 @@ import showPwdImg from '../../../images/show-password.svg';
 import hidePwdImg from '../../../images/hide-password.svg';
 import './password.css';
 import './Form.css';
-import { Link } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 function DocFormInscription(){
+
+    let history = useHistory();
+
+    const redirect = () => {
+        history.push("/Accueil")
+    }
+
+    const [ loginStatus, setLoginStatus ] = useState("")
+
+    Axios.defaults.withCredentials = true;
+
+
+    const login = () =>{
+        Axios.post('http://localhost:3001/login', { 
+            email_institu: email_institu, 
+            mot_de_passe: mot_de_passe, 
+
+    }).then((response)=> {  
+        console.log(response);
+        if(response.data.message){
+            setLoginStatus(response.data.message)
+            
+        }else{
+            setLoginStatus('')
+            /* setLoginStatus(response.data[0].nom) */
+            
+        }
+    })
+    }
+
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+            if(response.data.loggedIn == true){
+                 setLoginStatus(response.data.user[0].nom);
+            }
+        })
+    }
+, [])
 
         const [ nom, setNom ] = useState("")
         const [ prenom, setPrenom ] = useState("")
@@ -21,11 +60,12 @@ function DocFormInscription(){
         const [ discipline, setDiscipline ] = useState("")
         const [ thematique, setThematique ] = useState("")
         const [ labo, setLabo ] = useState("")
+        const [ grade, setGrade ] = useState("")
 
         const [isRevealPwd, setIsRevealPwd] = useState(false); //for the password
 
         const submitFormDoc = () =>{
-            Axios.post('http://localhost:3001/api/insertDoc', { 
+            Axios.post('http://localhost:3001/api/insertChercheur', { 
                 nom: nom, 
                 prenom: prenom, 
                 email_institu: email_institu, 
@@ -36,7 +76,8 @@ function DocFormInscription(){
                 departement: departement, 
                 discipline: discipline, 
                 thematique: thematique, 
-                labo:labo 
+                labo:labo,
+                grade:grade 
         }).then(()=> {  //then is called a promise
             alert("successful insert")
         })
@@ -79,7 +120,6 @@ function DocFormInscription(){
                                     title={isRevealPwd ? "Hide password" : "Show password"}
                                     src={isRevealPwd ? hidePwdImg : showPwdImg}
                                     onClick={() => setIsRevealPwd(prevState => !prevState)}
-                                    alt="hide/show"
                                 />
                             </div>
                         {/* <input className="inputForInsription" id="emailPerso" type="text"   name="emailPerso" required/> */}
@@ -96,41 +136,41 @@ function DocFormInscription(){
                         <label className="labelForInsription">Votre Etablissement<span className="required">*</span></label>
                         <select required aria-required="true" className="selectInForm" onChange={ (e) => {setEtablissement(e.target.value)}}>
                             <option></option>
-                            <option value="ensathociema">ENSA-Hoceima</option>
-                            <option value="ensattetouan">ENSA-Téouan</option>
-                            <option value="ensatanger">ENSA-Tanger</option>
-                            <option value="encgtanger">ENCG-Tanger</option>
-                            <option value="fsthoceima">FST-Hoceima</option>
-                            <option value="fsttanger">FST-Tanger</option>
-                            <option value="fplarache">FP-Larache</option>
-                            <option value="fstetouan">FS-Tétouan</option>
+                            <option >ENSA-Hoceima</option>
+                            <option >ENSA-Téouan</option>
+                            <option >ENSA-Tanger</option>
+                            <option >ENCG-Tanger</option>
+                            <option >FST-Hoceima</option>
+                            <option >FST-Tanger</option>
+                            <option >FP-Larache</option>
+                            <option >FS-Tétouan</option>
                         </select>
                     </div>
                     <div className="item">
                         <label className="labelForInsription">Votre Département<span className="required">*</span></label>
                         <select required aria-required="true" className="selectInForm" onChange={ (e) => {setDepartement(e.target.value)}}>
                             <option></option>
-                            <option value="depinfo">GÉNIE INFORMATIQUE</option>
-                            <option value="depmaths">MATHÉMATIQUES</option>
-                            <option value="depchimie">GÉNIE CHIMIQUE</option>
-                            <option value="depmecanique">GÉNIE MÉCANIQUE</option>
-                            <option value="depterre">SCIENCES DE LA TERRE</option>
-                            <option value="depelectrique">GÉNIE ELECTRIQUE</option>
-                            <option value="depvie">SCIENCES DE LA VIE</option>
-                            <option value="depphy">PHYSIQUE</option>
+                            <option >GÉNIE INFORMATIQUE</option>
+                            <option >MATHÉMATIQUES</option>
+                            <option >GÉNIE CHIMIQUE</option>
+                            <option >GÉNIE MÉCANIQUE</option>
+                            <option >SCIENCES DE LA TERRE</option>
+                            <option >GÉNIE ELECTRIQUE</option>
+                            <option >SCIENCES DE LA VIE</option>
+                            <option >PHYSIQUE</option>
                         </select>
                     </div>
                     <div className="item">
                         <label className="labelForInsription pForInsription">Votre Discipline<span className="required">*</span></label>
                         <select required aria-required="true" className="selectInForm" onChange={ (e) => {setDiscipline(e.target.value)}}>
                             <option></option>
-                            <option value="Informatiques">Informatiques</option>
-                            <option value="Mathématiques">Mathématiques</option>
-                            <option value="Physique">Physique</option>
-                            <option value="Biologie">Biologie</option>
-                            <option value="Giologie">Giologie</option>
-                            <option value="ManagementIndustriels">Management Industriels</option>
-                            <option value="">Electronics</option>
+                            <option >Informatiques</option>
+                            <option >Mathématiques</option>
+                            <option >Physique</option>
+                            <option >Biologie</option>
+                            <option >Giologie</option>
+                            <option >Management Industriels</option>
+                            <option >Electronics</option>
                         </select>
                     </div>
                     <div className="item">
@@ -142,30 +182,31 @@ function DocFormInscription(){
                     <label className="labelForInsription pForInsription">Votre Labo/Equipe<span className="required">*</span></label>
                     <select required aria-required="true" className="selectInForm" onChange={ (e) => {setLabo(e.target.value)}}>
                         <option></option>
-                        <option value="">Informatique, Systèmes et Télécommunications</option>
-                        <option value="">Couches Minces et Nanomatériaux</option>
-                        <option value="">Matériaux,  Environnement et Développement  Durable</option>
-                        <option value="">Ingénierie, Innovation et management des systèmes Industriels</option>
-                        <option value="">Physique Appliquée</option>
-                        <option value="">Environnement Marin et Risques Naturels</option>
-                        <option value="">Modélisation Mathématique et Contrôle</option>
-                        <option value="">Biochimie et Génétique Moléculaire</option>
-                        <option value="">Biotechnologies et Génie des Biomolécules</option>
-                        <option value="">Equipe de Recherche Valorisation Biotechnologique des Microorganismes, Génomique et Bioinformatique</option>
-                        <option value="">Transferts Thermiques et Energétique</option>
-                        <option value="">Etude des risques naturels (Georisk)</option>
-                        <option value="">Génomique biomédicale et oncogénétique</option>
-                        <option value="">Géo informatique et Aménagment du territoire</option>
-                        <option value="">Laboratoire de Génie Chimique et Valorisation des Ressources (LGCVR)</option>
-                        <option value="">Mathématiques et Applications</option>
-                        <option value="">Physico- Chimie des matériaux, Substances Naturelles et Environnement</option>
-                        <option value="">Mécanique et Génie civil</option>
+                        <option >Informatique, Systèmes et Télécommunications</option>
+                        <option >Couches Minces et Nanomatériaux</option>
+                        <option >Matériaux,  Environnement et Développement  Durable</option>
+                        <option >Ingénierie, Innovation et management des systèmes Industriels</option>
+                        <option >Physique Appliquée</option>
+                        <option >Environnement Marin et Risques Naturels</option>
+                        <option >Modélisation Mathématique et Contrôle</option>
+                        <option >Biochimie et Génétique Moléculaire</option>
+                        <option >Biotechnologies et Génie des Biomolécules</option>
+                        <option >Equipe de Recherche Valorisation Biotechnologique des Microorganismes, Génomique et Bioinformatique</option>
+                        <option >Transferts Thermiques et Energétique</option>
+                        <option >Etude des risques naturels (Georisk)</option>
+                        <option >Génomique biomédicale et oncogénétique</option>
+                        <option >Géo informatique et Aménagment du territoire</option>
+                        <option >Laboratoire de Génie Chimique et Valorisation des Ressources (LGCVR)</option>
+                        <option >Mathématiques et Applications</option>
+                        <option >Physico- Chimie des matériaux, Substances Naturelles et Environnement</option>
+                        <option >Mécanique et Génie civil</option>
                     </select>
                 </div>
+                <div>
+                <input  id="hide" type="text" name="thematique" required onChange={ (e) => {setGrade(e.target.value)}}/>
+                </div>
                 <div className="btn-block">
-                <Link to='/Accueil'>  {/* later add protected route here (login)*/}
-                    <button className="btn-submit-form-inscription" type="submit" href="/Accueil" onClick={submitFormDoc}>Envoyer</button>
-                    </Link>
+                    <button className="btn-submit-form-inscription" type="submit" href="/Accueil" onClick={() => { setTimeout(login,500); submitFormDoc(); setTimeout(redirect,1000); }}>Envoyer</button>
                 </div>
             </form>
         </div>

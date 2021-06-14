@@ -4,6 +4,9 @@ import './Sidebar.css'
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Axios from 'axios'
+
 
 //Pour le bouton onlign sur l'avatar
 const StyledBadge = withStyles((theme) => ({
@@ -50,6 +53,22 @@ const StyledBadge = withStyles((theme) => ({
 const Sidebar = () => {  
     const classes = useStyles();
 
+    const [ userLastName, setUserLastName ] = useState("")
+    const [ userFirstName, setFirstName ] = useState("")
+    const [ userEmail, setEmail ] = useState("")
+
+    Axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+      Axios.get("http://localhost:3001/login").then((response) => {
+          setUserLastName(response.data.user[0].nom)
+          setFirstName(response.data.user[0].prenom)
+          setEmail(response.data.user[0].email_institu)
+      })
+  }
+, [])
+
+
     return(
             <div className="sidebar">
                 <div className="Sidebar_Top">
@@ -67,13 +86,13 @@ const Sidebar = () => {
                                 <Avatar alt="A" src="/" />
                             </StyledBadge>
                         </div>
-                    <h3>Nom du chercheur</h3>
-                    <h5>Chercheur.nom@uae.ac.ma</h5>
+                    <h3>{userFirstName} {userLastName}</h3>
+                    <h5>{userEmail}</h5>
                 </div>
             <div className="sidebar_stats">
             <Link to='/Etablissements'>
                 <div className="sidebar_stat">
-                    <p>Etablissement</p>
+                    <p>Etablissements</p>
                 </div>
                 </Link>
                 <div className="sidebar_stat">

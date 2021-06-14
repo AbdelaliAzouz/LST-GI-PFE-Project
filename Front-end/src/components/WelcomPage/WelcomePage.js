@@ -5,17 +5,28 @@ import Container from "../Global/Container";
 import {button} from 'bootstrap/dist/css/bootstrap.min.css'
 import Particles from 'react-particles-js';
 import './WelcomePage.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from 'axios'
 import Login from '../Login/Login'
-import { Link } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+
 
 const Hero = () => {
 
+
+    let history = useHistory();
+
+    const redirect = () => {
+        history.push("/Accueil")
+    }
+
     const [ email_institu, setEmail_institu ] = useState("")
     const [ mot_de_passe, setMot_de_passe ] = useState("")
-
+   
     const [ loginStatus, setLoginStatus ] = useState("")
+
+    Axios.defaults.withCredentials = true;
+
 
     const login = () =>{
         Axios.post('http://localhost:3001/login', { 
@@ -27,11 +38,22 @@ const Hero = () => {
         if(response.data.message){
             setLoginStatus(response.data.message)
         }else{
-            setLoginStatus(response.data[0].nom)
+            setLoginStatus('')
+            /* setLoginStatus(response.data[0].nom) */
+            
         }
     })
     }
 
+    useEffect(() => {
+        Axios.get("http://localhost:3001/login").then((response) => {
+            if(response.data.loggedIn == true){
+                /* setLoginStatus(response.data.user[0].nom); */
+                return <Redirect to='/Accueil'  />
+            }
+        })
+    }
+, [])
 
     return (
         <section className="styles">
@@ -49,11 +71,10 @@ const Hero = () => {
                                 <label htmlFor="exampleInputPassword1" className="form-label" style={{float:'left', color:'#09024D'}}>Password</label>
                                 <input type="Password" className="form-control" id="exampleInputPassword1" onChange={ (e) => {setMot_de_passe(e.target.value)}}></input>
                             </div>
-                            {/* <Link to='/Accueil'> */}
-                                <button className="btn btn-primary" type="button" contenu="Sign in" onClick={login} >sign in</button>
-                            {/* </Link> */}
+                                <button className="btn btn-primary" type="button" contenu="Sign in" onClick={() => { login(); setTimeout(redirect,500); }} >sign in</button>
+
                         </form>
-                        <h3>{loginStatus}</h3>
+                         <h3>{loginStatus}</h3>
                     </span>
                 </div>
                 <div className="SignInGoogle" >

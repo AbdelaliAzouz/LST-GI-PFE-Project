@@ -34,3 +34,16 @@
         height: auto;
     
     }
+textarea{
+    border: none;
+    margin-left: 10px;
+    padding-right: 200px;
+    resize: none;
+    
+}
+
+@media(max-width: 626px) {
+    .post{
+        width: 420px;
+    }
+}

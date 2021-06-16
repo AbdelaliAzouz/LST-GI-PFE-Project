@@ -7,7 +7,6 @@ import Particles from 'react-particles-js';
 import './WelcomePage.css'
 import { useState, useEffect } from 'react';
 import Axios from 'axios'
-import Login from '../Login/Login'
 import { Redirect, useHistory } from 'react-router-dom';
 
 
@@ -76,9 +75,6 @@ const Hero = () => {
                         </form>
                          <h3>{loginStatus}</h3>
                     </span>
-                </div>
-                <div className="SignInGoogle" >
-                <Login />
                 </div>
             </Container>
             <div className="styles2" >

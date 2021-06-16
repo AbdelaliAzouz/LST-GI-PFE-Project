@@ -17,7 +17,7 @@ import RetourBtnInscription from './components/Page Inscription/RevenirAccueil/R
 import Labo from '../src/components/Pages/Accueil/Labo/labo' // importés pour Labos
 import Etablissements from '../src/components/Pages/Accueil/Etablissements/Etablissements' // importés pour Etablissements
 import ProtectedRoue from '../src/components/ProtectedRoute/ProtectedRoue'
-
+import Profile from '../src/components/Profile/Profile'
 
 const App = () => {
 
@@ -46,12 +46,11 @@ const App = () => {
                 <RetourBtnInscription/>
                 <DocFormInscription/>
             </Route>
+            <Route exact path="/Profile">
+                <Profile/>
+            </Route>
 
             <ProtectedRoue path="/Accueil" component={Accueil} loggedIn={loggedIn} />
-
-            {/* <Route exact path="/Accueil" >
-                <Accueil/>
-            </Route> */}
             <Route exact path='/Labos'>
                 <Labo/>
             </Route>

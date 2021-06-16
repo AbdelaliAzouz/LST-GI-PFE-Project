@@ -1,4 +1,4 @@
-import React, { useState, useEffect,component } from 'react';
+import React, { useState, useEffect,component, useRef } from 'react';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import './Feed.css';
@@ -10,9 +10,11 @@ import LiveHelpIcon from '@material-ui/icons/LiveHelp';
 import Post from './Post/Post';
 /* import {db} from './firebase/firebase' */
 import firebase from 'firebase'
+import "firebase/storage";
 import Axios from 'axios'
-import IconButton from '@material-ui/core/IconButton';
-import Uploadimage from './Uploadimage'
+import TextareaAutosize from 'react-textarea-autosize';
+import { useCollection } from "react-firebase-hooks/firestore";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,15 +38,20 @@ const useStyles = makeStyles((theme) => ({
     messagingSenderId: "977072052019",
     appId: "1:977072052019:web:245879e6f73c7354bad046"
   };
-  // Initialize Firebase
-//firebase.initializeApp(firebaseConfig);
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 const db = firebaseApp.firestore();
+const storage = firebase.storage();
 
 const Feed = () => {
 
+    const [realtimePosts] = useCollection(
+        db.collection('posts').orderBy('timestamp', 'desc')
+    );
+    
+
     const classes = useStyles();
+
     const [input, setInput ] = useState('');
     const [post, setPosts ] = useState([]);
 
@@ -52,6 +59,9 @@ const Feed = () => {
     const [ userFirstName, setFirstName ] = useState("")
     const [ userEtablissement, setUserEtablissement ] = useState("")
 
+    const filepickerRef = useRef(null); 
+    const [imageToPost, setImageToPost] = useState(null)
+ 
     Axios.defaults.withCredentials = true;
 
   useEffect(() => {
@@ -82,12 +92,45 @@ const Feed = () => {
             name: userFirstName + ' ' + userLastName,
             description: userEtablissement,
             message: input, 
-            photoUrl: '',
+            postImage: '',
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(doc => {
+            if (imageToPost) {
+                const uploadTask = storage.ref(`posts/${doc.id}`).putString(imageToPost,
+                    'data_url')
+
+                    removeImage();
+
+                    uploadTask.on('state_changed', null, error => console.error(error), () => {
+                        storage
+                        .ref('posts')
+                        .child(doc.id)
+                        .getDownloadURL()
+                        .then(url => {
+                            db.collection('posts').doc(doc.id).set({
+                                postImage: url
+                            },{ merge: true })
+                        })
+                    })
+            }
         })
 
         setInput("")
     };
+
+    const addImageToPost = (e) =>{
+        const reader = new FileReader();
+        if(e.target.files[0]){
+            reader.readAsDataURL(e.target.files[0]);
+        }
+        reader.onload = (readerEvent) => {
+            setImageToPost(readerEvent.target.result)
+        };
+    };
+
+    const removeImage = () => {
+        setImageToPost(null);
+    }
 
     return(
         <div className="feed " >
@@ -95,7 +138,19 @@ const Feed = () => {
                 <div className="input" >
                     <i className="fas fa-edit"></i>
                     <form>
-                        <input value={input} onChange={e => setInput(e.target.value)} type="text" />
+                       {/*  <textarea value={input} onChange={e => setInput(e.target.value)} /> */}
+                       <TextareaAutosize
+                       value={input}
+                       onChange={e => setInput(e.target.value)}
+                        rows={24}
+                        />
+                         {imageToPost && (
+                        <div onClick={removeImage} className="imagePreview">
+                            <img className="h-10 object-contain" src={imageToPost} alt=""></img>
+                            <p>remove</p>
+                        </div>
+                    )}
+                        <span>
                         <Button
                             variant="contained"
                             color="primary"
@@ -106,27 +161,15 @@ const Feed = () => {
                         >
                             POST
                         </Button>
+                        </span>
                     </form>
+                   
                 </div>
                 <div className="input_options" >
+                    <div onClick={() => filepickerRef.current.click()} className="inputIcon">
                     <InputOptions Icon={PhotoCameraIcon} title="Photo" color="blue" />
-
-                    <div>
-                    <input
-                        accept="image/*"
-                        className={classes.input}
-                        id="contained-button-file"
-                        multiple
-                        type="file"
-                    />
-                    <input accept="image/*" className={classes.input} id="icon-button-file" type="file" />
-                    <label htmlFor="icon-button-file">
-                        <IconButton color="primary" aria-label="upload picture" component="span">
-                        <PhotoCameraIcon />
-                        </IconButton>
-                    </label>
+                    <input ref={filepickerRef} onChange={addImageToPost} type="file" hidden></input>
                     </div>
-                    <Uploadimage/>
                     <InputOptions Icon={VideoCallIcon} title="Video" color="blue" />
                     <InputOptions Icon={DescriptionIcon} title="Articles" color="blue" />
                     <InputOptions Icon={LiveHelpIcon} title="Question" color="blue" />
@@ -134,13 +177,14 @@ const Feed = () => {
                 </div>
             </div>
 
-            {post.map(({ id, data:{ name, description, message, photoUrl}}) => (
+            {post.map(({ id, data:{ name, description, message, postImage}}) => (
                 <Post
                     key={id}
                     name={name}
                     description={description}
                     message={message}
-                    photoUrl={photoUrl}
+                    postImage={postImage}
+                    /* photoUrl */
                 />
             ))}
              

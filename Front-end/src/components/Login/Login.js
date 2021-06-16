@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+/* import React, { useState, useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase/app';
 import 'firebase/auth';
@@ -43,4 +43,4 @@ return(
 )
 }
 
-export default Login;
+export default Login; */

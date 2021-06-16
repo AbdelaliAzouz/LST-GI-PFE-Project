@@ -63,6 +63,10 @@
     background-color: #072D63;
 }
 
+#navbarScroll{
+    width: 100px;
+}
+
 .sidebar{
     top: 180;
 }
@@ -87,15 +91,23 @@
 }
 
 .fa-power-off{
-    color: rgb(220, 190, 20);
+    color: rgb(196, 169, 19);
     margin-right: 3px;
 }
 
 .logout{
-    color: rgb(204, 177, 20);
+    color: rgb(191, 165, 20);
 }
 
 .dec{
     display: flex;
     margin-right: 40px;
+}
+
+.logout:hover{
+    color: rgb(255, 219, 18);
+}
+.fa-power-off:hover{
+    color: rgb(255, 226, 63);
+    margin-right: 3px;
 }

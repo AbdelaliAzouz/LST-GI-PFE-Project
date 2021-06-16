@@ -13,6 +13,14 @@
         flex: 1;
     }
 }
+@media(max-width: 500px) {
+    .feed_input{
+        width: 440px;
+    }
+    .input > form > Button {
+        width: 50px;        
+    }
+}
 
 .feed_input{
     background-color: white;
@@ -41,15 +49,34 @@
 
 }
 
-.input > form > input {
+.input > form > textarea {
     border: none;
     flex: 1;
-    margin-left: 10px;
+    margin-left: 0px;
     outline-width: 0;
     font-weight: 600;
 }
 
 .input > form > Button {
     margin: 0px;
+    resize: none;
+    
+}
+
+.imagePreview{
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.imagePreview:hover{
+    scale: 105;
+}
+
+.imagePreview > img{
+    width: 90px;
+}
+
+.imagePreview > p{
+    color: red;
 }
 

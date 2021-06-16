@@ -4,9 +4,10 @@ import InputOptions from '../InputOptions/InputOptions'
 import './Post.css'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import InsertCommentIcon from '@material-ui/icons/InsertComment';
+import TextareaAutosize from 'react-textarea-autosize';
 
+function Post( {name, description, message, postImage}) {
 
-function Post( {name, description, message, photoUrl}) {
     return (
         <div className="post">
             <div className="post_header">
@@ -16,16 +17,19 @@ function Post( {name, description, message, photoUrl}) {
                     <p>{description}</p>
                 </div>
             </div>
-
-            <div className="post_body">
-                <p>{message}</p>
-            </div>
+           <div className="post_body">
+               <TextareaAutosize
+               readOnly
+               rows={4}
+               defaultValue={message}
+               />
+           </div>
             
             <div className="post_image">
-            <img src={photoUrl} alt="POST_PHOTO"></img>
 
-            {photoUrl && (
-                <div>
+            {postImage && (
+                <div className="relative">
+                    <img src={postImage} alt="POST_PHOTO" objectFit='cover' layout='fill'></img>
                 </div>
             )}
 

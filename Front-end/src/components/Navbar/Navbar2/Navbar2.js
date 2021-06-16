@@ -12,7 +12,7 @@ const Navbar2 = () => {
     return(
         <div className="Navbar2">
 <Navbar  expand="lg" className="Navbar2">
-  <a href="/"><img className="logoReact" src={logoReact} alt="logo"/></a>
+  <a href="/Accueil"><img className="logoReact" src={logoReact} alt="logo"/></a>
   <Navbar.Brand href="#" id="Research">Research plateforme</Navbar.Brand>
   <Navbar.Toggle aria-controls="navbarScroll" />
   <Navbar.Collapse id="navbarScroll">
@@ -22,7 +22,7 @@ const Navbar2 = () => {
       navbarScroll
     >
       <Nav.Link href="/Accueil" className="navig"><i className="fas fa-home"></i><div className="label">Accueil</div></Nav.Link>
-      <Nav.Link href="/#action2" className="navig"><i class="fas fa-user-alt"></i><div className="label">Profil</div></Nav.Link>
+      <Nav.Link href="/profile" className="navig"><i class="fas fa-user-alt"></i><div className="label">Profil</div></Nav.Link>
       <Nav.Link href="/Etablissements" className="navig"><i className="fas fa-university"></i><div className="label">Etablissements</div></Nav.Link>
       <Nav.Link href="#action3" className="navig"><i className="fas fa-newspaper"></i><div className="label">Articles</div></Nav.Link>
       <Nav.Link href="#action4" className="navig"><i className="fas fa-user-friends"></i><div className="label">Chercheurs</div></Nav.Link>

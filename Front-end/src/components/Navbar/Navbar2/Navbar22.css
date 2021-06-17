@@ -24,9 +24,16 @@
     display: flex;
 }
 
-@media(max-width: 1170px) {
-    .profil{
+@media(max-width: 1240px) {
+    .logout{
         display: none;
+        margin: 0px;
+    }
+    .Search_icon{
+        display: none;
+    }
+    .dec{
+        margin-right: 0px;
     }
 }
 

@@ -1,14 +1,18 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar, Nav, FormControl, Form } from 'react-bootstrap'
 import logoReact from '../../../images/logoReact.png'
-import { Avatar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import './Navbar22.css'
-import Dropdown from 'react-bootstrap/Dropdown'
+import Axios from 'axios'
 
 
 const Navbar2 = () => {  
+
+  const logout = () =>{
+    Axios.post('http://localhost:3001/logout', { 
+})
+}
+
     return(
         <div className="Navbar2">
 <Navbar  expand="lg" className="Navbar2">
@@ -32,10 +36,12 @@ const Navbar2 = () => {
 
     </Nav.Link> */}
     <a href="/">
+      <button onClick={logout}>
     <div className="dec">
       <i class="fas fa-power-off fa-lg" ></i>
       <p className="logout">logout</p>
     </div>
+      </button>
     </a>
     <Form className="d-flex">
       <FormControl

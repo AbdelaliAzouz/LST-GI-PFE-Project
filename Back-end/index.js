@@ -162,12 +162,17 @@ app.post("/api/insertChercheur", (req, res) => {
 app.get("/login", (req, res) => {
     if(req.session.user){
         res.send({ loggedIn: true, user: req.session.user })
-        
     }else{
         res.send({ loggedIn: false })
     }
 })
 
+/* app.post("/logout", (req) => {
+    req.session.destroy((err) => {
+        console.log(err);
+        res.redirect('/');
+    });
+});  */
 
 
 //la fonction de Login
@@ -189,9 +194,8 @@ app.post("/login", (req, res) => {
             }
 
             if(result.length > 0){  
-                   bcrypt.compare(mot_de_passe, result[0].mot_de_passe, (error, response) => {
-                       if(response) {
-                           
+                bcrypt.compare(mot_de_passe, result[0].mot_de_passe, (error, response) => {
+                       if(response) {                     
                            req.session.user = result;
                            console.log(req.session.user);
                            res.send(result);

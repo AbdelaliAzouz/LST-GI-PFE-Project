@@ -1,5 +1,4 @@
 import { Avatar } from '@material-ui/core'
-import React from 'react'
 import InputOptions from '../InputOptions/InputOptions'
 import './Post.css'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';

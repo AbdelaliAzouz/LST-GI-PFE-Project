@@ -19,6 +19,13 @@ import Etablissements from '../src/components/Pages/Accueil/Etablissements/Etabl
 import ProtectedRoue from '../src/components/ProtectedRoute/ProtectedRoue'
 import Profile from '../src/components/Profile/Profile'
 
+// importés pour les fonctionnalités de l'Admin
+import EspaceAdmin from './components/Pages/Accueil/Admin/espaceAdmin'
+import EspaceAdminAccueil from './components/Pages/Accueil/Admin/espaceAdminAccueil'
+import AjouterStructure from './components/Pages/Accueil/Admin/ajouterStructure'
+import Thematiques from '../src/components/Pages/Accueil/Thematique/Thematique'
+
+
 const App = () => {
 
     const [loggedIn, setIoggedIn] = useState(true);
@@ -56,6 +63,18 @@ const App = () => {
             </Route>
             <Route exact path='/Etablissements'>
                 <Etablissements/>
+            </Route>
+            <Route exact path='/Thematiques'>
+                <Thematiques/>
+            </Route>
+            <Route exact path='/EspaceAdmin'>
+                <EspaceAdmin/>
+            </Route>
+            <Route exact path='/EspaceAdmin/Accueil'>
+                <EspaceAdminAccueil/>
+            </Route>
+            <Route path='/EspaceAdmin/AjouterStructure'>
+                <AjouterStructure/>
             </Route>
         </Router>
     </div >

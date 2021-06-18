@@ -1,0 +1,20 @@
+.marginbottom{
+    margin-bottom: 10px;
+}
+
+.marginbottom span{
+    color: #09537e;
+}
+
+.marginbottomspan{
+    color: #09537e;
+    /* display: block; */
+}
+
+.imgexternallink{
+    width: 15px;
+    margin: 3px;
+}
+.marginbottomspan:hover{
+    color: #2171a0;
+}

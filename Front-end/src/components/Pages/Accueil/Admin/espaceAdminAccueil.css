@@ -1,0 +1,211 @@
+/* .container-accueil-admin{
+    margin: 1%;
+} */
+#formThematique,#formStructure{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-size: 16px;
+    color: #666;
+    line-height: 22px;
+}
+#formThematique,#formStructure{
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 0 8px  #669999;
+    margin: 15px;
+}
+.bienvenu-admin{
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 60px;
+    color: #ffffff;
+    background-color: #072D63;
+    padding: 20px;
+    text-align: center;
+    font-family: Bahnschrift;
+    font-size: xxx-large;
+}
+.ajouter-structure{
+    float: right;
+    margin-bottom: 0px;
+    margin-bottom: 10px;
+    margin-top: -10px;
+    border: none;
+    border-radius: none;
+}
+.container-accueil-admin{
+    align-items: center;
+    text-align: center;
+}
+.btn-supprimer{
+    color: #ffffff;
+    background-color: rgb(201, 6, 6);
+    margin: 10px;
+    padding: 5px;
+    border: none;
+}
+.btn-modifier{
+    color: #ffffff;
+    background-color: #116b01;
+    margin: 10px;
+    padding: 5px;
+    border: none;
+}
+.btn-modifier:hover{
+    background-color: rgb(119, 156, 82);
+}
+.btn-supprimer:hover{
+    background-color: rgb(151, 52, 49);
+}
+.container-accueil-admin p {
+    float: left;
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+/* 
+    This Is for ajouterStructure
+ */
+#StructuresRecherches h3, #Thematique h3{
+    text-align: center;
+    align-items: center;
+}
+.col1-profil{
+    /* background-color: #4e83ce; */
+    /* align-items: center; */
+    text-align: center;
+}
+
+.col1-profil img{
+    width: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+.col2-profil{
+    /* align-items: center; */
+    text-align: center;
+    /* background-color: red; */
+}
+
+.ajouterStructure h2{
+    font-size: xx-large;
+    text-align: center;
+}
+.form-ajouter-structure{
+    margin: 3%;
+    text-align: center;
+    align-items: center;
+}
+.form-ajouter-structure label{
+    display: block;
+}
+/* .form-ajouter-structure:hover{
+    border: 0.5px solid red;
+} */
+
+.inside-form{
+    display: flex;
+}
+
+.table-labo table{
+    align-items: center;
+    text-align: center;
+}
+
+.table-labo table, .table-labo { 
+    /* width: 100%; */
+    border-collapse: collapse; 
+}
+/* Zebra striping */
+.table-labo tr:nth-of-type(odd) {
+    background: #eee; 
+}
+.table-labo th { 
+    background: #333; 
+    color: white; 
+    font-weight: bold; 
+}
+.table-labo td, .table-labo th { 
+    /* padding: 6px; */
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+/* 
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+/* 1400px */
+@media 
+only screen and (max-width: 970px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	.table-labo table, .table-labo thead, .table-labo tbody, .table-labo th, .table-labo td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.table-labo thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	.table-labo tr { border: 1px solid #ccc; }
+	
+	.table-labo td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	.table-labo td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	.table-labo table{
+        display: block;
+        padding: 0px;
+        margin: 0px;
+    }
+	/*
+	Label the data
+	*/
+	.structurerecherche td:nth-of-type(1):before { content: "Nom de la Structure"; }
+	.structurerecherche td:nth-of-type(2):before { content: "Responsable"; }
+	.structurerecherche td:nth-of-type(3):before { content: "Lien de ResearchGate"; }
+	.structurerecherche td:nth-of-type(4):before { content: "Type de la Structure"; }
+	.structurerecherche td:nth-of-type(5):before { content: "Nombre des Membres"; }
+	.structurerecherche td:nth-of-type(6):before { content: "Opérations"; }
+
+	.structurerecherche td:nth-of-type(1):before { content: "Nom de la Thematique"; }
+	.structurerecherche td:nth-of-type(2):before { content: "Etablissement"; }
+	.structurerecherche td:nth-of-type(3):before { content: "Structure de Recheche"; }
+	.structurerecherche td:nth-of-type(4):before { content: "Chercheur"; }
+	.structurerecherche td:nth-of-type(5):before { content: "Opérations"; }
+}
+.inputAjouterStructure,.selectAjouterStructure {
+    width: 300px;
+    height: 25px;
+    margin: 5px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.inputAjouterStructure:hover,.selectAjouterStructure:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 3px 0  #455050;
+    color: #425353;
+}

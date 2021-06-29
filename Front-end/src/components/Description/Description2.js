@@ -2,7 +2,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
 import Container from "../Global/Container";
-import Button from "../Global/Button/Button";
 
 // Background Image
 import bg7 from "../../images/bg7.jpg";
@@ -15,12 +14,11 @@ const Sale2 = () => {
                 <div className="wrapper" >
                     <h3>COLLABORATION AVEC<br></br>
                      AUTRES CHERCHEURS</h3>
-                    <p>Nous aidons les étudiants à trouver et comparer des projets
-                         et programmes de recherche doctorale depuis plus de 15 ans.
-                          En plus de répertorier les opportunités de doctorat et les bourses,
-                           nous fournissons également un large éventail de conseils sur la recherche et le financement
-                            de troisième cycle .</p>
-                    <Button contenu="Joindre un équipe" />
+                    <p>Cette plateforme, peut aider les chercheurs qui ont besoin 
+                        d’une collaboration à trouver ce qu’ils cherchent sans complication
+                         et en peu de temps. Ils peuvent trouver d’autres chercheurs travaillent
+                          sur le même thématique, des articles scientifiques, identifier l’état de
+                           la recherche scientifique au sein d’un institution particulière, etc..</p>
                 </div>
             </Container>
             <img  src={bg7png} alt="png bg"/> 

@@ -8,6 +8,7 @@ import Axios from 'axios'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import RetourBtnInscription from '../../../Page Inscription/RevenirAccueil/RetourBtn'
 // import imgAdmin from '../../../../images/admin.png'
 
 function EspaceAdminAccueil() {
@@ -364,6 +365,7 @@ return (
         <h1 className="bienvenu-admin">
             Bienvenu à l'espace Admin
         </h1>
+        <RetourBtnInscription/>
         <Container>
             <Row>
                 <Col>

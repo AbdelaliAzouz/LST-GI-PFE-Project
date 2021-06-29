@@ -2,14 +2,14 @@ import { Avatar } from '@material-ui/core'
 import React from 'react'
 import './SidebarRight.css'
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-
+import { Link } from 'react-router-dom'
 
 function SidebarRight() {
 
     return (
         <div className="Sidebar_Right" >
             <div className="Sidebar_Right_Header" >
-            <h2>Etablissements</h2>
+            <h2 className="title">Etablissements</h2>
                 <div className="Etablissements">
                         <div className="Location">
                         <LocationOnIcon/>
@@ -58,9 +58,9 @@ function SidebarRight() {
                     </div>
                     
                 </div>
-                
-                <h2>Page d'admin</h2>
-                <h2>Statistiques</h2>
+                <Link to="/Espaceadmin" >
+                    <h2 className="title" >Page d'admin</h2>
+                </Link>
             </div>
         </div>
     )

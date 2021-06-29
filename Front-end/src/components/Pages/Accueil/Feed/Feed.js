@@ -156,9 +156,14 @@ const Feed = () => {
                     <InputOptions Icon={PhotoCameraIcon} title="Photo" color="blue" />
                     <input ref={filepickerRef} onChange={addImageToPost} type="file" hidden></input>
                     </div>
+                    <div onClick={() => filepickerRef.current.click()} className="inputIcon">
                     <InputOptions Icon={VideoCallIcon} title="Video" color="blue" />
-                    <InputOptions Icon={DescriptionIcon} title="Articles" color="blue" />
-                    <InputOptions Icon={LiveHelpIcon} title="Question" color="blue" />
+                    <input ref={filepickerRef} onChange={addImageToPost} type="file" hidden></input>
+                    </div>
+                    <div onClick={() => filepickerRef.current.click()} className="inputIcon">
+                    <InputOptions Icon={DescriptionIcon} title="Fichier" color="blue" />
+                    <input ref={filepickerRef} onChange={addImageToPost} type="file" hidden></input>
+                    </div>
 
                 </div>
             </div>

@@ -102,12 +102,14 @@ const Sidebar = () => {
                     <p>Etablissements</p>
                 </div>
                 </Link>
-                <div className="sidebar_stat">
-                    <p>Départements</p>
-                </div>
                 <Link to='/Labos'>
+                <div className="sidebar_stat">
+                    <p>Structures de recherches</p>
+                </div>
+                </Link>
+                <Link to='/Thematiques'>
                   <div className="sidebar_stat">
-                      <p>Labos</p>
+                      <p>Thématiques de recherches</p>
                   </div>
                 </Link>
             </div>

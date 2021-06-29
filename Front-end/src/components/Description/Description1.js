@@ -2,7 +2,6 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
 import Container from "../Global/Container";
-import Button from "../Global/Button/Button";
 
 // Background Image
 import bg6 from "../../images/bg6.jpg";
@@ -17,13 +16,13 @@ const Sale = () => {
                         A PROPS DE NOTRE <br></br>
                         PLATEFORME</h3>
                     <p>
-                        Nous aidons les étudiants à trouver et comparer des projets
-                        et programmes de recherche doctorale depuis plus de 15 ans.
-                        En plus de répertorier les opportunités de doctorat et les bourses,
-                        nous fournissons également un large éventail de conseils sur la recherche et le financement
-                        de troisième cycle .
+                    Cette application est construit autour d’une 
+                    plateforme numérique collaborative des
+                    chercheurs académiques de notre université 
+                    Abdelmalek Essaadi, vienne pour mettre 
+                    en place ces fonctionnalités et renforcer 
+                    les plateformes déjà existantes.
                     </p>
-                    <Button contenu="LIRE DES ARTICLES"/>
                 </div>
             </Container>
             <img  src={bg6png} alt="png bg"/> 

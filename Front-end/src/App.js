@@ -18,6 +18,7 @@ import Labo from '../src/components/Pages/Accueil/Labo/labo' // importés pour L
 import Etablissements from '../src/components/Pages/Accueil/Etablissements/Etablissements' // importés pour Etablissements
 import ProtectedRoue from '../src/components/ProtectedRoute/ProtectedRoue'
 import Profile from '../src/components/Profile/Profile'
+import About from '../src/components/Pages/AboutPage/AboutPage'
 
 // importés pour les fonctionnalités de l'Admin
 import EspaceAdmin from './components/Pages/Accueil/Admin/espaceAdmin'
@@ -56,6 +57,9 @@ const App = () => {
             <Route exact path="/Profile">
                 <Profile/>
             </Route>
+            <Route exact path="/About">
+                <About/>
+            </Route>
 
             <ProtectedRoue path="/Accueil" component={Accueil} loggedIn={loggedIn} />
             <Route exact path='/Labos'>
@@ -71,9 +75,11 @@ const App = () => {
                 <EspaceAdmin/>
             </Route>
             <Route exact path='/EspaceAdmin/Accueil'>
+            
                 <EspaceAdminAccueil/>
             </Route>
             <Route path='/EspaceAdmin/AjouterStructure'>
+                
                 <AjouterStructure/>
             </Route>
         </Router>

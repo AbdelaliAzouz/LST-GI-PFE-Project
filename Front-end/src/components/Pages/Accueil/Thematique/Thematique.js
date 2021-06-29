@@ -21,7 +21,7 @@ function Thematique() {
         <Navbar2/>
         <div className="labo">
             <h1 className="header-labo-equipe">
-                Thematiques de Recherche
+                Thématiques de Recherche
             </h1>
             <h2 className="header-labo-equipe">
                 <button
